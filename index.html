@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>By Solar — Panneaux Solaires Photovoltaïques & Thermiques | Mondial</title>
+<meta name="description" content="Solutions solaires résidentielles, commerciales et industrielles. LONGi, JA Solar, Trina Solar. Installation mondiale. ROI garanti 4-6 ans. 30% acompte.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sun:#F5A623;--sun-l:#FFD166;--sun-d:#E08A00;
+  --navy:#1B3A6B;--navy-l:#2E5CA6;--navy-d:#102650;
+  --sky:#EBF4FF;--white:#FFFFFF;--off:#F8FAFF;
+  --txt:#1A2332;--mut:#6B7A99;--bdr:rgba(27,58,107,.12);
+  --grn:#00B86B;--grn-l:#E6FFF4;--red:#E53E3E;
+  --orange:#FF6B2B;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--white);color:var(--txt);font-family:'Inter',sans-serif;font-weight:400;overflow-x:hidden;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:space-between;padding:1rem 4rem;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--bdr);box-shadow:0 2px 20px rgba(27,58,107,.06);transition:padding .4s;}
+nav.sc{padding:.75rem 4rem;}
+.logo{display:flex;align-items:center;gap:.7rem;text-decoration:none;}
+.logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--sun),var(--sun-l));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;box-shadow:0 4px 12px rgba(245,166,35,.3);}
+.logo-text{font-family:'Outfit',sans-serif;font-size:1.4rem;font-weight:800;color:var(--navy);}
+.logo-text span{color:var(--sun);}
+.nl{display:flex;gap:2rem;list-style:none;}
+.nl a{color:var(--mut);font-size:.82rem;font-weight:500;letter-spacing:.02em;text-decoration:none;transition:color .3s;}
+.nl a:hover{color:var(--navy);}
+.ncta{background:var(--sun);color:var(--white);padding:.58rem 1.6rem;font-family:'Outfit',sans-serif;font-size:.82rem;font-weight:700;border-radius:6px;text-decoration:none;transition:all .3s;box-shadow:0 4px 14px rgba(245,166,35,.35);}
+.ncta:hover{background:var(--sun-d);transform:translateY(-1px);box-shadow:0 6px 20px rgba(245,166,35,.45);}
+.hbg{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;}
+.hbg span{display:block;width:22px;height:2px;background:var(--mut);}
+.mmenu{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(255,255,255,.98);border-bottom:1px solid var(--bdr);padding:2rem;flex-direction:column;gap:1.4rem;z-index:290;box-shadow:0 8px 30px rgba(27,58,107,.1);}
+.mmenu.op{display:flex;}
+.mmenu a{color:var(--mut);font-size:.95rem;font-weight:500;text-decoration:none;}
+
+/* ── HERO ── */
+#hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:8rem 4rem 5rem;overflow:hidden;background:linear-gradient(145deg,#EBF4FF 0%,#F8FAFF 40%,#FFF9EE 100%);}
+.hero-deco{position:absolute;right:-5%;top:-10%;width:65%;height:120%;background:linear-gradient(145deg,#1B3A6B 0%,#2E5CA6 50%,#1B4A8A 100%);clip-path:polygon(20% 0%,100% 0%,100% 100%,5% 100%);z-index:0;}
+.hero-sun{position:absolute;right:15%;top:10%;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,.25) 0%,rgba(245,166,35,.05) 60%,transparent 100%);z-index:1;animation:sunpulse 4s ease-in-out infinite;}
+@keyframes sunpulse{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.08);opacity:1}}
+.hero-rays{position:absolute;right:25%;top:5%;z-index:1;}
+.ray{position:absolute;background:linear-gradient(to right,rgba(245,166,35,.15),transparent);height:2px;transform-origin:left center;}
+.hc{position:relative;z-index:3;max-width:620px;}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(245,166,35,.12);border:1.5px solid rgba(245,166,35,.3);padding:.35rem .9rem;margin-bottom:1.8rem;font-size:.73rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--sun-d);border-radius:20px;}
+.hero-badge::before{content:'☀️';}
+h1{font-family:'Outfit',sans-serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:800;line-height:1.08;color:var(--txt);margin-bottom:1.5rem;}
+h1 .accent{color:var(--sun);}
+h1 .navy{color:var(--navy);}
+.hsub{font-size:1rem;line-height:1.8;color:var(--mut);max-width:520px;margin-bottom:2.5rem;}
+.hsub strong{color:var(--navy);font-weight:600;}
+.hact{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:3rem;}
+.btn-sun{background:var(--sun);color:var(--white);padding:1rem 2.2rem;border:none;font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:700;border-radius:8px;cursor:pointer;text-decoration:none;display:inline-block;transition:all .3s;box-shadow:0 6px 20px rgba(245,166,35,.4);}
+.btn-sun:hover{background:var(--sun-d);transform:translateY(-2px);box-shadow:0 10px 30px rgba(245,166,35,.5);}
+.btn-outline{background:transparent;color:var(--navy);padding:.9rem 1.8rem;border:2px solid var(--navy);font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:600;border-radius:8px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:all .3s;}
+.btn-outline:hover{background:var(--navy);color:var(--white);}
+.hero-stats-row{display:flex;gap:2rem;flex-wrap:wrap;}
+.hst{padding:1rem 1.5rem;background:var(--white);border:1px solid var(--bdr);border-radius:10px;text-align:center;box-shadow:0 4px 16px rgba(27,58,107,.08);}
+.hsn{font-family:'Outfit',sans-serif;font-size:1.6rem;font-weight:800;color:var(--navy);line-height:1;}
+.hsl{font-size:.72rem;color:var(--mut);margin-top:.2rem;font-weight:500;}
+/* Right side panels visual */
+.hero-visual{position:absolute;right:3%;top:50%;transform:translateY(-50%);z-index:2;width:35%;max-width:400px;}
+.panel-card{background:rgba(255,255,255,.12);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:1.5rem;margin-bottom:1rem;}
+.panel-stat{font-family:'Outfit',sans-serif;font-size:1.4rem;font-weight:700;color:var(--sun-l);}
+.panel-lbl{font-size:.75rem;color:rgba(255,255,255,.7);margin-top:.2rem;}
+.panel-bar{height:6px;background:rgba(255,255,255,.15);border-radius:3px;margin-top:.8rem;overflow:hidden;}
+.panel-fill{height:100%;border-radius:3px;background:linear-gradient(to right,var(--sun),var(--sun-l));}
+
+/* ── TRUST BAR ── */
+.trust-bar{background:var(--navy);padding:1.2rem 4rem;display:flex;justify-content:center;gap:3.5rem;flex-wrap:wrap;}
+.tb{display:flex;align-items:center;gap:.7rem;font-size:.82rem;color:rgba(255,255,255,.8);font-weight:500;}
+.tb-icon{font-size:1.1rem;}
+
+/* ── SECTIONS ── */
+section{padding:7rem 4rem;}
+.sl{display:inline-flex;align-items:center;gap:.6rem;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.25);padding:.3rem .9rem;border-radius:20px;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sun-d);margin-bottom:1.2rem;}
+.sl.navy{background:rgba(27,58,107,.08);border-color:rgba(27,58,107,.2);color:var(--navy);}
+h2{font-family:'Outfit',sans-serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:800;color:var(--txt);line-height:1.15;margin-bottom:1rem;}
+h2 .accent{color:var(--sun);}
+h2 .navy{color:var(--navy);}
+.sec-desc{font-size:.95rem;color:var(--mut);line-height:1.8;max-width:600px;margin-bottom:2.5rem;}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s;}
+.rv.vis{opacity:1;transform:translateY(0);}
+
+/* ── PAY BANNER ── */
+.pb{display:inline-flex;gap:1.2rem;background:var(--grn-l);border:1.5px solid rgba(0,184,107,.25);padding:.85rem 1.6rem;margin-bottom:2.5rem;flex-wrap:wrap;align-items:center;border-radius:10px;}
+.ps{display:flex;align-items:center;gap:.55rem;font-size:.84rem;font-weight:500;}
+.pnum{background:var(--sun);color:var(--white);font-family:'Outfit',sans-serif;font-weight:700;font-size:.72rem;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.ppc{color:var(--grn);font-weight:700;}
+
+/* ── PRODUCTS ── */
+#products{background:var(--off);}
+.product-tabs{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:3rem;background:var(--white);border:1px solid var(--bdr);border-radius:10px;padding:.5rem;display:inline-flex;}
+.ptab{background:transparent;border:none;color:var(--mut);padding:.55rem 1.2rem;font-family:'Outfit',sans-serif;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .3s;border-radius:7px;}
+.ptab:hover{color:var(--navy);}
+.ptab.act{background:var(--navy);color:var(--white);}
+.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.pc{background:var(--white);border:1.5px solid var(--bdr);border-radius:14px;overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s;position:relative;}
+.pc:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(27,58,107,.1);border-color:var(--sun);}
+.pc.hid{display:none;}
+.pc-hdr{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-l) 100%);padding:2rem 1.8rem;position:relative;overflow:hidden;}
+.pc-hdr::after{content:'☀️';position:absolute;right:1rem;top:50%;transform:translateY(-50%);font-size:3.5rem;opacity:.15;}
+.pc-badge{position:absolute;top:.8rem;right:.8rem;background:var(--sun);color:var(--white);font-family:'Outfit',sans-serif;font-size:.67rem;font-weight:700;padding:.22rem .65rem;border-radius:4px;letter-spacing:.08em;text-transform:uppercase;}
+.pc-badge.pop{background:var(--orange);}
+.pc-badge.ind{background:var(--navy-d);color:var(--sun-l);}
+.pc-type{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:.4rem;}
+.pc-name{font-family:'Outfit',sans-serif;font-size:1.5rem;font-weight:700;color:var(--white);margin-bottom:.2rem;}
+.pc-power{font-size:.84rem;color:var(--sun-l);margin-top:.25rem;}
+.pc-body{padding:1.5rem 1.8rem 1.8rem;}
+.pc-specs{display:flex;flex-direction:column;gap:.55rem;margin-bottom:1.3rem;}
+.pc-spec{display:flex;align-items:center;gap:.65rem;font-size:.87rem;color:var(--txt);}
+.pc-spec::before{content:'✓';color:var(--grn);font-weight:700;flex-shrink:0;}
+.pc-roi{display:flex;align-items:center;gap:.6rem;background:var(--grn-l);border:1px solid rgba(0,184,107,.2);padding:.7rem 1rem;border-radius:8px;margin-bottom:1.2rem;}
+.pc-roi-icon{font-size:1.2rem;}
+.pc-roi-text{font-size:.82rem;font-weight:600;color:var(--grn);}
+.pc-price-box{background:var(--off);border:1.5px solid var(--bdr);padding:1rem;border-radius:10px;margin-bottom:1.2rem;}
+.pc-price-lbl{font-size:.7rem;color:var(--mut);font-weight:500;margin-bottom:.3rem;letter-spacing:.04em;}
+.pc-price{font-family:'Outfit',sans-serif;font-size:1.8rem;font-weight:800;color:var(--navy);line-height:1;}
+.pc-dep{font-size:.76rem;color:var(--mut);margin-top:.3rem;}
+.pc-dep span{color:var(--sun-d);font-weight:600;}
+.pc-eco{font-size:.73rem;color:var(--grn);margin-top:.25rem;font-weight:500;}
+.pc-btn{width:100%;background:var(--sun);border:none;color:var(--white);padding:.85rem;font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:700;border-radius:8px;cursor:pointer;transition:all .3s;box-shadow:0 4px 14px rgba(245,166,35,.3);}
+.pc-btn:hover{background:var(--sun-d);transform:translateY(-1px);box-shadow:0 7px 20px rgba(245,166,35,.4);}
+
+/* ── MODAL ── */
+.mov{position:fixed;inset:0;background:rgba(27,58,107,.6);z-index:600;display:none;align-items:center;justify-content:center;padding:1.5rem;backdrop-filter:blur(8px);}
+.mov.op{display:flex;}
+.modal{background:var(--white);border-radius:16px;max-width:640px;width:100%;max-height:92vh;overflow-y:auto;position:relative;animation:mIn .3s ease;box-shadow:0 30px 80px rgba(27,58,107,.25);}
+@keyframes mIn{from{opacity:0;transform:scale(.95) translateY(16px)}to{opacity:1;transform:none}}
+.mx{position:absolute;top:1.2rem;right:1.5rem;background:var(--off);border:none;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--mut);transition:all .3s;z-index:10;}
+.mx:hover{background:var(--bdr);color:var(--navy);}
+.m-hdr{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-l) 100%);padding:2rem 2.4rem;border-radius:16px 16px 0 0;}
+.m-type2{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sun-l);margin-bottom:.4rem;}
+.m-name{font-family:'Outfit',sans-serif;font-size:2rem;font-weight:800;color:var(--white);}
+.m-sub{color:rgba(255,255,255,.7);font-size:.9rem;margin-top:.25rem;}
+.m-body{padding:2rem 2.4rem;}
+.m-section-ttl{font-family:'Outfit',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin-bottom:.8rem;padding-bottom:.5rem;border-bottom:2px solid var(--bdr);}
+.price-breakdown{background:var(--off);border:1.5px solid var(--bdr);border-radius:10px;padding:1.2rem;margin-bottom:1.5rem;}
+.pbr{display:flex;justify-content:space-between;align-items:center;padding:.45rem 0;border-bottom:1px solid var(--bdr);}
+.pbr:last-child{border:none;padding-top:.7rem;}
+.pbrl{font-size:.87rem;color:var(--mut);}
+.pbrv{font-family:'Outfit',sans-serif;font-size:.92rem;font-weight:600;color:var(--txt);}
+.pbr.tot .pbrl{color:var(--txt);font-size:.95rem;font-weight:600;}
+.pbr.tot .pbrv{font-size:1.4rem;color:var(--navy);}
+.pay-tl{display:flex;gap:.8rem;margin-bottom:1.5rem;}
+.pts{flex:1;background:var(--off);border:1.5px solid var(--bdr);border-radius:10px;padding:.9rem;text-align:center;}
+.pts.act{border-color:var(--sun);background:rgba(245,166,35,.05);}
+.pts-n{font-family:'Outfit',sans-serif;font-size:1.6rem;font-weight:800;color:rgba(27,58,107,.2);line-height:1;margin-bottom:.3rem;}
+.pts.act .pts-n{color:var(--sun);}
+.pts-l{font-size:.63rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-bottom:.2rem;}
+.pts-v{font-size:.84rem;color:var(--txt);font-weight:500;}
+.pts-s{font-size:.63rem;color:var(--mut);margin-top:.1rem;}
+.m-feats{display:grid;grid-template-columns:1fr 1fr;gap:.45rem;margin-bottom:1.5rem;}
+.m-feat{display:flex;align-items:center;gap:.6rem;font-size:.86rem;color:var(--txt);}
+.m-feat::before{content:'✓';color:var(--grn);font-weight:700;flex-shrink:0;}
+.mform{display:flex;flex-direction:column;gap:.85rem;}
+.mfr{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;}
+.mf{display:flex;flex-direction:column;gap:.28rem;}
+.mf label{font-size:.68rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);}
+.mf input,.mf select,.mf textarea{background:var(--off);border:1.5px solid var(--bdr);color:var(--txt);padding:.75rem .95rem;font-family:'Inter',sans-serif;font-size:.9rem;outline:none;transition:border-color .3s;resize:none;border-radius:7px;-webkit-appearance:none;}
+.mf input:focus,.mf select:focus,.mf textarea:focus{border-color:var(--sun);}
+.msub{background:var(--sun);color:var(--white);border:none;padding:1rem;font-family:'Outfit',sans-serif;font-size:1rem;font-weight:700;border-radius:8px;cursor:pointer;transition:all .3s;width:100%;margin-top:.4rem;box-shadow:0 4px 14px rgba(245,166,35,.3);}
+.msub:hover{background:var(--sun-d);}
+.mlegal{font-size:.72rem;color:var(--mut);line-height:1.5;margin-top:.7rem;text-align:center;}
+
+/* ── SUPPLIERS ── */
+#suppliers{background:var(--white);}
+.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:2.5rem;}
+.sc{background:var(--off);border:1.5px solid var(--bdr);border-radius:12px;padding:1.4rem;transition:all .3s;}
+.sc:hover{border-color:var(--sun);box-shadow:0 8px 25px rgba(245,166,35,.12);}
+.scn{font-family:'Outfit',sans-serif;font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:.25rem;}
+.sct{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--sun-d);margin-bottom:.7rem;}
+.scl{list-style:none;display:flex;flex-direction:column;gap:.4rem;}
+.scl li{font-size:.8rem;color:var(--mut);display:flex;gap:.45rem;}
+.scl li::before{content:'✓';color:var(--grn);font-weight:700;flex-shrink:0;}
+.scbdg{margin-top:.8rem;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.22rem .6rem;border-radius:20px;display:inline-block;}
+.scbdg.cert{background:var(--grn-l);color:var(--grn);}
+.scbdg.ver{background:rgba(245,166,35,.1);color:var(--sun-d);}
+
+/* ── MARKETS ── */
+#markets{background:var(--off);}
+.mkg{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:2.5rem;}
+.mkc{background:var(--white);border:1.5px solid var(--bdr);border-radius:12px;padding:1.3rem;text-align:center;transition:all .3s;}
+.mkc:hover{border-color:var(--sun);transform:translateY(-3px);box-shadow:0 10px 25px rgba(245,166,35,.12);}
+.mkfl{font-size:2rem;margin-bottom:.5rem;}
+.mkcn{font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:.25rem;}
+.mkfc{font-size:.72rem;color:var(--sun-d);font-weight:600;margin-bottom:.4rem;}
+.mkd{font-size:.76rem;color:var(--mut);line-height:1.5;}
+.mkp{font-size:.7rem;color:var(--grn);margin-top:.5rem;font-weight:600;}
+
+/* ── HOW IT WORKS ── */
+#how{background:var(--navy);}
+.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem;}
+.how-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:1.8rem 1.5rem;text-align:center;transition:all .3s;}
+.how-card:hover{background:rgba(255,255,255,.12);border-color:var(--sun);}
+.how-num{font-family:'Outfit',sans-serif;font-size:3rem;font-weight:800;color:rgba(245,166,35,.2);line-height:1;margin-bottom:.8rem;}
+.how-icon{font-size:1.8rem;margin-bottom:.6rem;}
+.how-ttl{font-family:'Outfit',sans-serif;font-size:1rem;font-weight:700;color:var(--white);margin-bottom:.5rem;}
+.how-desc{font-size:.83rem;color:rgba(255,255,255,.6);line-height:1.6;}
+
+/* ── TRUST ── */
+#trust{background:var(--white);}
+.tg{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:2.5rem;}
+.tc{background:var(--off);border:1.5px solid var(--bdr);border-radius:12px;padding:1.8rem 1.5rem;transition:all .3s;}
+.tc:hover{border-color:var(--sun);box-shadow:0 8px 25px rgba(245,166,35,.1);}
+.tico{font-size:2rem;margin-bottom:.8rem;}
+.tttl{font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:.5rem;}
+.tdsc{font-size:.83rem;color:var(--mut);line-height:1.6;}
+
+/* ── CONTACT ── */
+#contact{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-l) 100%);}
+.ci{max-width:640px;margin:0 auto;text-align:center;}
+.ci h2{color:var(--white);margin-bottom:1rem;}
+.ci p{color:rgba(255,255,255,.7);line-height:1.8;margin-bottom:2.5rem;font-size:.97rem;}
+.cform{display:flex;flex-direction:column;gap:.9rem;text-align:left;}
+.cr{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;}
+.cf{display:flex;flex-direction:column;gap:.28rem;}
+.cf label{font-size:.68rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.6);}
+.cf input,.cf select,.cf textarea{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.2);color:var(--white);padding:.82rem 1.05rem;font-family:'Inter',sans-serif;font-size:.9rem;outline:none;transition:border-color .3s;resize:none;border-radius:7px;-webkit-appearance:none;}
+.cf input::placeholder,.cf textarea::placeholder{color:rgba(255,255,255,.4);}
+.cf input:focus,.cf select:focus,.cf textarea:focus{border-color:var(--sun);}
+.cf select option{background:var(--navy);color:var(--white);}
+.csbtn{background:var(--sun);color:var(--white);border:none;padding:1rem;font-family:'Outfit',sans-serif;font-size:1rem;font-weight:700;border-radius:8px;cursor:pointer;transition:all .3s;margin-top:.4rem;box-shadow:0 4px 14px rgba(245,166,35,.4);}
+.csbtn:hover{background:var(--sun-d);transform:translateY(-1px);}
+.calts{display:flex;gap:1rem;justify-content:center;margin-top:1.5rem;flex-wrap:wrap;}
+.calt{display:flex;align-items:center;gap:.6rem;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.2);padding:.72rem 1.2rem;color:rgba(255,255,255,.85);font-size:.84rem;text-decoration:none;transition:all .3s;border-radius:8px;}
+.calt:hover{border-color:var(--sun);color:var(--white);}
+
+/* ── FOOTER ── */
+footer{background:var(--navy-d);padding:2.5rem 4rem;}
+.fm{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem;}
+.flogo{display:flex;align-items:center;gap:.6rem;text-decoration:none;}
+.flogo-icon{width:30px;height:30px;background:linear-gradient(135deg,var(--sun),var(--sun-l));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;}
+.flogo-text{font-family:'Outfit',sans-serif;font-size:1.2rem;font-weight:800;color:var(--white);}
+.flogo-text span{color:var(--sun);}
+.fls{display:flex;gap:1.8rem;list-style:none;flex-wrap:wrap;}
+.fls a{font-size:.78rem;color:rgba(255,255,255,.5);text-decoration:none;transition:color .3s;}
+.fls a:hover{color:var(--sun-l);}
+.fb2{display:flex;justify-content:space-between;align-items:center;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.1);flex-wrap:wrap;gap:.8rem;}
+.flg{font-size:.7rem;color:rgba(255,255,255,.3);}
+
+/* ── WA ── */
+.wa-f{position:fixed;bottom:2rem;right:2rem;z-index:400;display:flex;flex-direction:column;align-items:flex-end;gap:.5rem;}
+.wa-tip{background:var(--white);border:1px solid var(--bdr);color:var(--txt);font-size:.73rem;font-weight:500;padding:.4rem .85rem;white-space:nowrap;opacity:0;transform:translateX(6px);transition:all .3s;pointer-events:none;border-radius:6px;box-shadow:0 4px 12px rgba(0,0,0,.1);}
+.wa-f:hover .wa-tip{opacity:1;transform:translateX(0);}
+.wa-btn{width:56px;height:56px;border-radius:50%;background:#25D366;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(37,211,102,.4);animation:wap 2.5s ease-in-out infinite;text-decoration:none;}
+@keyframes wap{0%,100%{box-shadow:0 4px 18px rgba(37,211,102,.35)}50%{box-shadow:0 4px 28px rgba(37,211,102,.65)}}
+.wa-btn svg{width:28px;height:28px;fill:white;}
+
+/* ── AI CHAT ── */
+#chat-toggle{position:fixed;bottom:2rem;left:2rem;z-index:400;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--sun),var(--orange));border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 4px 20px rgba(245,166,35,.5);animation:glow 2.5s ease-in-out infinite;}
+@keyframes glow{0%,100%{box-shadow:0 4px 20px rgba(245,166,35,.4)}50%{box-shadow:0 4px 35px rgba(245,166,35,.7)}}
+.cbdg{position:absolute;top:-4px;right:-4px;background:var(--red);color:white;width:18px;height:18px;border-radius:50%;font-size:.65rem;font-weight:700;display:flex;align-items:center;justify-content:center;}
+#chat-box{position:fixed;bottom:6rem;left:2rem;z-index:400;width:370px;height:530px;background:var(--white);border:1.5px solid var(--bdr);border-radius:16px;display:none;flex-direction:column;box-shadow:0 20px 60px rgba(27,58,107,.2);}
+#chat-box.op{display:flex;animation:slideUp .3s ease;}
+@keyframes slideUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.chat-hdr{background:linear-gradient(135deg,var(--navy),var(--navy-l));padding:1rem 1.2rem;display:flex;align-items:center;gap:.75rem;border-radius:14px 14px 0 0;}
+.chat-av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--sun),var(--sun-l));display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.chat-name{font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:700;color:var(--white);}
+.chat-status{font-size:.7rem;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:.35rem;}
+.chat-status::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--grn);animation:blink2 2s ease-in-out infinite;}
+@keyframes blink2{0%,100%{opacity:1}50%{opacity:.3}}
+.chat-close{margin-left:auto;background:rgba(255,255,255,.15);border:none;color:var(--white);cursor:pointer;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:background .3s;}
+.chat-close:hover{background:rgba(255,255,255,.25);}
+.chat-msgs{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:.75rem;}
+.chat-msgs::-webkit-scrollbar{width:4px;}
+.chat-msgs::-webkit-scrollbar-thumb{background:var(--bdr);border-radius:2px;}
+.msg{max-width:85%;padding:.7rem .9rem;font-size:.85rem;line-height:1.55;border-radius:12px;}
+.msg.bot{background:var(--off);border:1px solid var(--bdr);color:var(--txt);align-self:flex-start;border-radius:4px 12px 12px 12px;}
+.msg.user{background:var(--navy);color:var(--white);align-self:flex-end;border-radius:12px 4px 12px 12px;}
+.msg.typing{background:var(--off);border:1px solid var(--bdr);color:var(--mut);align-self:flex-start;display:flex;gap:.3rem;align-items:center;padding:.8rem 1rem;border-radius:4px 12px 12px 12px;}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--mut);animation:td 1.2s ease-in-out infinite;}
+.dot:nth-child(2){animation-delay:.2s;}
+.dot:nth-child(3){animation-delay:.4s;}
+@keyframes td{0%,100%{opacity:.3;transform:scale(.8)}50%{opacity:1;transform:scale(1.2)}}
+.chat-quick{display:flex;flex-wrap:wrap;gap:.4rem;padding:.6rem 1rem;border-top:1px solid var(--bdr);}
+.qbtn{background:var(--off);border:1.5px solid var(--bdr);color:var(--navy);padding:.32rem .7rem;font-family:'Inter',sans-serif;font-size:.74rem;font-weight:500;cursor:pointer;transition:all .3s;border-radius:16px;}
+.qbtn:hover{border-color:var(--sun);color:var(--sun-d);}
+.chat-input-row{display:flex;padding:.7rem;border-top:1px solid var(--bdr);gap:.5rem;}
+#chat-input{flex:1;background:var(--off);border:1.5px solid var(--bdr);color:var(--txt);padding:.55rem .85rem;font-family:'Inter',sans-serif;font-size:.87rem;outline:none;transition:border-color .3s;border-radius:8px;}
+#chat-input:focus{border-color:var(--sun);}
+#chat-send{background:var(--sun);border:none;color:var(--white);padding:.55rem 1.1rem;font-family:'Outfit',sans-serif;font-size:.82rem;font-weight:700;cursor:pointer;transition:all .3s;border-radius:7px;}
+#chat-send:hover{background:var(--sun-d);}
+
+/* RESPONSIVE */
+@media(max-width:1100px){.prod-grid{grid-template-columns:repeat(2,1fr);}.sg{grid-template-columns:repeat(2,1fr);}.tg{grid-template-columns:repeat(2,1fr);}.mkg{grid-template-columns:repeat(2,1fr);}.how-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem;}.nl,.ncta{display:none;}.hbg{display:flex;}
+  section{padding:5rem 2rem;}
+  #hero{padding:7rem 2rem 4rem;}.hero-visual{display:none;}
+  .prod-grid,.sg,.mkg,.how-grid{grid-template-columns:1fr;}
+  .mfr{grid-template-columns:1fr;}.m-feats{grid-template-columns:1fr;}
+  .pay-tl{flex-direction:column;}
+  .cr{grid-template-columns:1fr;}
+  footer{padding:2rem 1.5rem;}.fm{flex-direction:column;text-align:center;}.fls{justify-content:center;}
+  .fb2{flex-direction:column;text-align:center;}
+  #chat-box{width:calc(100vw - 2rem);left:1rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ MODAL ══ -->
+<div class="mov" id="modal">
+  <div class="modal">
+    <button class="mx" onclick="closeM()">✕</button>
+    <div class="m-hdr">
+      <div class="m-type2" id="mType">Solution Solaire</div>
+      <div class="m-name" id="mName">Nom du Pack</div>
+      <div class="m-sub" id="mSub">Sous-titre</div>
+    </div>
+    <div class="m-body">
+      <div class="m-section-ttl">💰 Détail du Prix & Rentabilité</div>
+      <div class="price-breakdown">
+        <div class="pbr"><span class="pbrl">Panneaux solaires (fabrication Chine)</span><span class="pbrv" id="p1"></span></div>
+        <div class="pbr"><span class="pbrl">Onduleur & batterie de stockage</span><span class="pbrv" id="p2"></span></div>
+        <div class="pbr"><span class="pbrl">Fret & import</span><span class="pbrv" id="p3"></span></div>
+        <div class="pbr"><span class="pbrl">Installation & mise en service</span><span class="pbrv" id="p4"></span></div>
+        <div class="pbr"><span class="pbrl">Service By Solar (suivi, garantie)</span><span class="pbrv" id="p5"></span></div>
+        <div class="pbr tot"><span class="pbrl">💰 Prix Total TTC Clé en Main</span><span class="pbrv" id="p6"></span></div>
+      </div>
+      <div class="pay-tl">
+        <div class="pts act"><div class="pts-n">1</div><div class="pts-l">Acompte commande</div><div class="pts-v" id="mDep" style="color:var(--sun-d);font-size:1.05rem;font-weight:700;"></div><div class="pts-s">30% à la commande</div></div>
+        <div class="pts"><div class="pts-n">2</div><div class="pts-l">Livraison & installation</div><div class="pts-v">4–8 semaines</div><div class="pts-s">Selon pays & complexité</div></div>
+        <div class="pts"><div class="pts-n">3</div><div class="pts-l">Solde à la mise en service</div><div class="pts-v" id="mBal" style="font-size:1rem;font-weight:600;"></div><div class="pts-s">70% après tests</div></div>
+      </div>
+      <div class="m-feats" id="mFeats"></div>
+      <div class="m-section-ttl">📋 Demande de devis gratuit</div>
+      <form class="mform" action="https://formspree.io/f/YOUR_SOLAR_FORM_ID" method="POST" onsubmit="handleF(event,this)">
+        <input type="hidden" name="_subject" id="mSubj">
+        <input type="hidden" name="produit" id="mProd">
+        <input type="hidden" name="prix_total" id="mPH">
+        <input type="hidden" name="acompte" id="mAH">
+        <div class="mfr">
+          <div class="mf"><label>Prénom & Nom *</label><input type="text" name="nom" placeholder="Jean Dupont" required></div>
+          <div class="mf"><label>Email *</label><input type="email" name="email" placeholder="contact@mail.com" required></div>
+        </div>
+        <div class="mfr">
+          <div class="mf"><label>Téléphone / WhatsApp</label><input type="tel" name="tel" placeholder="+33 6 00 00 00 00"></div>
+          <div class="mf"><label>Pays d'installation</label>
+            <select name="pays">
+              <optgroup label="🇪🇺 Europe"><option>France</option><option>Belgique</option><option>Espagne</option><option>Portugal</option><option>Italie</option><option>Grèce</option></optgroup>
+              <optgroup label="🌍 Afrique & Maghreb"><option>Maroc</option><option>Tunisie</option><option>Algérie</option><option>Sénégal</option><option>Côte d'Ivoire</option><option>Cameroun</option><option>Mali</option></optgroup>
+              <optgroup label="🌍 Moyen-Orient"><option>Émirats Arabes Unis</option><option>Qatar</option><option>Arabie Saoudite</option></optgroup>
+              <optgroup label="🌏 Autres"><option>Autre</option></optgroup>
+            </select>
+          </div>
+        </div>
+        <div class="mf"><label>Type d'usage</label>
+          <select name="usage"><option>Résidentiel (maison individuelle)</option><option>Copropriété / Immeuble</option><option>Commercial (PME, boutique)</option><option>Industriel (usine, entrepôt)</option><option>Agricole (exploitation)</option></select>
+        </div>
+        <div class="mf"><label>Message</label><textarea name="message" rows="2" placeholder="Surface toiture, consommation mensuelle kWh, questions..."></textarea></div>
+        <button type="submit" class="msub" id="mBtn">Envoyer ma demande →</button>
+        <div class="mlegal">🔒 Gratuit & sans engagement · Réponse sous 24h · Acompte 30% uniquement après bon de commande signé</div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ══ WA ══ -->
+<div class="wa-f">
+  <div class="wa-tip">Contacter By Solar sur WhatsApp</div>
+  <a href="https://wa.me/33777805278?text=Bonjour%20By%20Solar%2C%20je%20souhaite%20un%20devis%20panneaux%20solaires." class="wa-btn" target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+</div>
+
+<!-- ══ AI CHAT ══ -->
+<button id="chat-toggle" onclick="toggleChat()" title="Assistante By Solar IA">
+  ☀️<span class="cbdg">1</span>
+</button>
+<div id="chat-box">
+  <div class="chat-hdr">
+    <div class="chat-av">☀️</div>
+    <div>
+      <div class="chat-name">Soleil — Assistante By Solar</div>
+      <div class="chat-status">En ligne · Réponse instantanée</div>
+    </div>
+    <button class="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div class="chat-msgs" id="chatMsgs"></div>
+  <div class="chat-quick" id="quickBtns">
+    <button class="qbtn" onclick="sendQ('Prix panneaux solaires')">💰 Prix</button>
+    <button class="qbtn" onclick="sendQ('ROI et économies ?')">📊 ROI</button>
+    <button class="qbtn" onclick="sendQ('Installation en Afrique')">🌍 Afrique</button>
+    <button class="qbtn" onclick="sendQ('Usage industriel')">🏭 Industriel</button>
+    <button class="qbtn" onclick="sendQ('Garanties ?')">🛡️ Garanties</button>
+  </div>
+  <div class="chat-input-row">
+    <input type="text" id="chat-input" placeholder="Posez votre question..." onkeydown="if(event.key==='Enter')sendMsg()">
+    <button id="chat-send" onclick="sendMsg()">→</button>
+  </div>
+</div>
+
+<!-- ══ NAV ══ -->
+<nav id="nav">
+  <a class="logo" href="#">
+    <div class="logo-icon">☀️</div>
+    <span class="logo-text">By<span> Solar</span></span>
+  </a>
+  <ul class="nl">
+    <li><a href="#products">Nos Offres</a></li>
+    <li><a href="#suppliers">Fournisseurs</a></li>
+    <li><a href="#markets">Marchés</a></li>
+    <li><a href="#how">Comment ça marche</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="ncta" href="#products">Devis gratuit</a>
+  <button class="hbg" onclick="document.getElementById('mm').classList.toggle('op')"><span></span><span></span><span></span></button>
+</nav>
+<div class="mmenu" id="mm">
+  <a href="#products" onclick="this.closest('.mmenu').classList.remove('op')">Nos Offres</a>
+  <a href="#suppliers" onclick="this.closest('.mmenu').classList.remove('op')">Fournisseurs</a>
+  <a href="#markets" onclick="this.closest('.mmenu').classList.remove('op')">Marchés</a>
+  <a href="#how" onclick="this.closest('.mmenu').classList.remove('op')">Comment ça marche</a>
+  <a href="#contact" onclick="this.closest('.mmenu').classList.remove('op')">Contact</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="hero-deco"></div>
+  <div class="hero-sun"></div>
+  <div class="hc">
+    <div class="hero-badge">Énergie Solaire Mondiale</div>
+    <h1>Payez <span class="accent">80% moins cher</span><br>votre électricité<br><span class="navy">avec le soleil.</span></h1>
+    <p class="hsub">By Solar importe et installe les meilleurs panneaux solaires chinois (LONGi, JA Solar, Trina) dans <strong>50+ pays</strong>. Résidentiel, commercial, industriel. <strong>ROI garanti en 4 à 6 ans.</strong></p>
+    <div class="hact">
+      <a href="#products" class="btn-sun">Voir nos offres →</a>
+      <a href="#contact" class="btn-outline">📞 Devis gratuit</a>
+    </div>
+    <div class="hero-stats-row">
+      <div class="hst"><div class="hsn">−80%</div><div class="hsl">Facture électricité</div></div>
+      <div class="hst"><div class="hsn">25 ans</div><div class="hsl">Garantie panneau</div></div>
+      <div class="hst"><div class="hsn">4–6 ans</div><div class="hsl">Retour sur invest.</div></div>
+      <div class="hst"><div class="hsn">50+</div><div class="hsl">Pays couverts</div></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="panel-card">
+      <div class="panel-stat">847 kWh</div>
+      <div class="panel-lbl">Produits ce mois</div>
+      <div class="panel-bar"><div class="panel-fill" style="width:85%"></div></div>
+    </div>
+    <div class="panel-card">
+      <div class="panel-stat">−127 €</div>
+      <div class="panel-lbl">Économisés ce mois</div>
+      <div class="panel-bar"><div class="panel-fill" style="width:72%"></div></div>
+    </div>
+    <div class="panel-card">
+      <div class="panel-stat">12.4 t</div>
+      <div class="panel-lbl">CO₂ évité depuis l'install.</div>
+      <div class="panel-bar"><div class="panel-fill" style="width:60%"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TRUST BAR ══ -->
+<div class="trust-bar">
+  <div class="tb"><span class="tb-icon">🏭</span> LONGi · JA Solar · Trina Solar</div>
+  <div class="tb"><span class="tb-icon">🌍</span> Installation 50+ pays</div>
+  <div class="tb"><span class="tb-icon">✅</span> Garantie 25 ans panneau</div>
+  <div class="tb"><span class="tb-icon">💳</span> 30% acompte, 70% à la mise en service</div>
+  <div class="tb"><span class="tb-icon">📊</span> ROI garanti 4–6 ans</div>
+</div>
+
+<!-- ══ PRODUCTS ══ -->
+<section id="products">
+  <div class="sl rv">☀️ Nos Solutions Solaires</div>
+  <h2 class="rv">Panneaux solaires <span class="accent">premium</span><br>pour chaque besoin</h2>
+  <p class="sec-desc rv">Prix clé en main — panneaux premium, onduleur, installation et garantie inclus. Marges distributeurs éliminées : vous payez le prix juste.</p>
+  <div class="pb rv">
+    <div class="ps"><div class="pnum">1</div><span class="ppc">30% acompte</span> à la commande</div>
+    <span style="color:var(--mut)">→</span>
+    <div class="ps"><div class="pnum">2</div>Livraison & installation <span style="color:var(--mut)">(4–8 sem.)</span></div>
+    <span style="color:var(--mut)">→</span>
+    <div class="ps"><div class="pnum">3</div><span class="ppc">70% solde</span> après mise en service</div>
+  </div>
+  <div class="product-tabs rv">
+    <button class="ptab act" onclick="filtP('all',this)">Toutes</button>
+    <button class="ptab" onclick="filtP('resi',this)">🏠 Résidentiel</button>
+    <button class="ptab" onclick="filtP('com',this)">🏢 Commercial</button>
+    <button class="ptab" onclick="filtP('ind',this)">🏭 Industriel</button>
+    <button class="ptab" onclick="filtP('ther',this)">🌡️ Thermique</button>
+  </div>
+  <div class="prod-grid" id="pGrid"></div>
+</section>
+
+<!-- ══ SUPPLIERS ══ -->
+<section id="suppliers">
+  <div class="sl rv">🏭 Nos Fournisseurs</div>
+  <h2 class="rv">Fabricants <span class="accent">certifiés</span><br>parmi les meilleurs au monde</h2>
+  <p class="sec-desc rv">Tous nos panneaux proviennent des top 5 fabricants mondiaux. Certifications IEC, MCS, TÜV, UL, CEC. Qualité garantie, contrôle usine systématique.</p>
+  <div class="sg" id="suppGrid"></div>
+</section>
+
+<!-- ══ HOW ══ -->
+<section id="how">
+  <div class="sl rv" style="border-color:rgba(245,166,35,.3);color:var(--sun-l);background:rgba(245,166,35,.1);">⚡ Le Processus</div>
+  <h2 class="rv" style="color:var(--white);">De la commande à <span style="color:var(--sun-l)">l'énergie gratuite</span></h2>
+  <div class="how-grid">
+    <div class="how-card rv"><div class="how-num">01</div><div class="how-icon">📋</div><div class="how-ttl">Devis Gratuit</div><div class="how-desc">Envoyez votre demande. Nous étudions votre situation : surface, ensoleillement, consommation, pays.</div></div>
+    <div class="how-card rv"><div class="how-num">02</div><div class="how-icon">✍️</div><div class="how-ttl">Commande & Acompte</div><div class="how-desc">Signature du bon de commande. Versement de 30% uniquement. We source les panneaux en Chine.</div></div>
+    <div class="how-card rv"><div class="how-num">03</div><div class="how-icon">🚢</div><div class="how-ttl">Import & Installation</div><div class="how-desc">Fret depuis la Chine, dédouanement, installation par équipe certifiée locale. 4 à 8 semaines.</div></div>
+    <div class="how-card rv"><div class="how-num">04</div><div class="how-icon">☀️</div><div class="how-ttl">Énergie Gratuite</div><div class="how-desc">Mise en service, tests, raccordement. Solde 70% versé. Vous produisez votre électricité dès le lendemain.</div></div>
+  </div>
+</section>
+
+<!-- ══ TRUST ══ -->
+<section id="trust">
+  <div class="sl rv">🛡️ Garanties</div>
+  <h2 class="rv">Investissez en toute <span class="accent">confiance</span></h2>
+  <div class="tg">
+    <div class="tc rv"><div class="tico">⚡</div><div class="tttl">Garantie Rendement 25 ans</div><div class="tdsc">Nos panneaux LONGi et JA Solar garantissent 80%+ du rendement initial après 25 ans. Performance certifiée IEC.</div></div>
+    <div class="tc rv"><div class="tico">🔧</div><div class="tttl">Garantie Produit 12 ans</div><div class="tdsc">Défauts de fabrication couverts 12 ans. Onduleur garanti 10 ans. Remplacement et réparation inclus.</div></div>
+    <div class="tc rv"><div class="tico">💳</div><div class="tttl">Paiement Sécurisé 30/70</div><div class="tdsc">30% à la commande uniquement après signature. 70% versés seulement après mise en service et tests de performance.</div></div>
+    <div class="tc rv"><div class="tico">📊</div><div class="tttl">ROI Calculé & Garanti</div><div class="tdsc">Nous vous fournissons une simulation financière détaillée avant tout engagement : économies annuelles, ROI, valeur nette.</div></div>
+  </div>
+</section>
+
+<!-- ══ MARKETS ══ -->
+<section id="markets">
+  <div class="sl rv">🌍 Marchés</div>
+  <h2 class="rv">Installation solaire <span class="accent">partout</span><br>dans le monde</h2>
+  <div class="mkg" id="mGrid"></div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section id="contact">
+  <div class="ci">
+    <div class="sl rv" style="border-color:rgba(245,166,35,.3);color:var(--sun-l);background:rgba(245,166,35,.1);margin:0 auto 1.2rem;">☀️ Contact</div>
+    <h2 class="rv">Commencez à produire<br>votre propre énergie</h2>
+    <p class="rv">Devis gratuit sous 24h. Ou chattez avec Soleil, notre IA solaire 24h/7j ☀️</p>
+    <form class="cform rv" action="https://formspree.io/f/YOUR_SOLAR_FORM_ID" method="POST" onsubmit="handleCF(event,this)">
+      <div class="cr">
+        <div class="cf"><label>Prénom & Nom *</label><input type="text" name="nom" placeholder="Jean Dupont" required></div>
+        <div class="cf"><label>Société (si applicable)</label><input type="text" name="societe" placeholder="Mon Entreprise"></div>
+      </div>
+      <div class="cr">
+        <div class="cf"><label>Email *</label><input type="email" name="email" placeholder="contact@mail.com" required></div>
+        <div class="cf"><label>Téléphone / WhatsApp</label><input type="tel" name="tel" placeholder="+33 6 00 00 00 00"></div>
+      </div>
+      <div class="cr">
+        <div class="cf"><label>Type de projet</label>
+          <select name="type"><option>Résidentiel (maison)</option><option>Commercial (PME)</option><option>Industriel (usine)</option><option>Agricole</option></select>
+        </div>
+        <div class="cf"><label>Pays d'installation</label>
+          <select name="pays">
+            <optgroup label="Europe"><option>France</option><option>Espagne</option><option>Portugal</option><option>Italie</option><option>Belgique</option></optgroup>
+            <optgroup label="Afrique"><option>Maroc</option><option>Sénégal</option><option>Côte d'Ivoire</option><option>Cameroun</option><option>Mali</option><option>Tunisie</option><option>Algérie</option></optgroup>
+            <optgroup label="Moyen-Orient"><option>Émirats Arabes Unis</option><option>Qatar</option><option>Arabie Saoudite</option></optgroup>
+            <optgroup label="Autre"><option>Autre</option></optgroup>
+          </select>
+        </div>
+      </div>
+      <div class="cf"><label>Votre message</label><textarea name="message" rows="3" placeholder="Surface toiture disponible, consommation mensuelle, budget, questions..."></textarea></div>
+      <button type="submit" class="csbtn" id="cBtn">Recevoir mon devis gratuit →</button>
+    </form>
+    <div class="calts rv">
+      <a href="https://wa.me/33777805278" class="calt" target="_blank"><span>💬</span> WhatsApp</a>
+      <a href="/cdn-cgi/l/email-protection#8deee2e3f9eceef9cdeff4fee2e1ecffa3ebff" class="calt"><span>📧</span> <span class="__cf_email__" data-cfemail="a6c5c9c8d2c7c5d2e6c4dfd5c9cac7d488c0d4">[email&#160;protected]</span></a>
+      <a href="#" class="calt" onclick="toggleChat();return false;"><span>☀️</span> IA Soleil 24h/7j</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fm">
+    <a class="flogo" href="#">
+      <div class="flogo-icon">☀️</div>
+      <span class="flogo-text">By<span> Solar</span></span>
+    </a>
+    <ul class="fls">
+      <li><a href="#products">Nos Offres</a></li>
+      <li><a href="#suppliers">Fournisseurs</a></li>
+      <li><a href="#markets">Marchés</a></li>
+      <li><a href="#how">Comment ça marche</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+  <div class="fb2">
+    <div class="flg">© 2025 By Solar · Panneaux Solaires Photovoltaïques & Thermiques · Livraison Mondiale · Tous droits réservés</div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const fmt=n=>n.toLocaleString('fr-FR')+' €';
+
+const PRODS=[
+  {id:1,type:["resi"],badge:"Résidentiel",bc:"",name:"Starter 3 kWc",power:"3 000 Wc — 3 Panneaux LONGi 400W",sub:"Idéal petite maison / appartement",specs:["Production ~3 600 kWh/an","Économie ~540 €/an","Onduleur Huawei SUN2000","Installation comprise"],roi:"ROI estimé : 5–6 ans",p:{b:1800,f:300,i:900,s:1900,sv:1000,t:5900}},
+  {id:2,type:["resi"],badge:"Le Plus Populaire",bc:"pop",name:"Confort 6 kWc",power:"6 000 Wc — 6 Panneaux LONGi 400W + Batterie",sub:"Maison standard 4 personnes — le best-seller",specs:["Production ~7 200 kWh/an","Économie ~1 080 €/an","Batterie CATL 5 kWh incluse","Monitoring app temps réel"],roi:"ROI estimé : 4–5 ans",p:{b:3200,f:450,i:1500,s:2800,sv:1950,t:9900}},
+  {id:3,type:["resi"],badge:"Résidentiel",bc:"",name:"Premium 9 kWc",power:"9 000 Wc — 9 Panneaux JA Solar + Batterie 10kWh",sub:"Grande maison — autosuffisance optimale",specs:["Production ~10 800 kWh/an","Économie ~1 620 €/an","Batterie CATL 10 kWh","Autoconsommation >80%"],roi:"ROI estimé : 4–5 ans",p:{b:4800,f:600,i:2200,s:3400,sv:2900,t:13900}},
+  {id:4,type:["com"],badge:"Commercial",bc:"",name:"PME 20 kWc",power:"20 000 Wc — 20 Panneaux Trina Solar 400W",sub:"Bureaux, commerces, restaurants",specs:["Production ~24 000 kWh/an","Économie ~3 600 €/an","Onduleur triphasé Huawei","Rapport production mensuel"],roi:"ROI estimé : 4–5 ans",p:{b:8500,f:1200,i:4800,s:6500,sv:3900,t:24900}},
+  {id:5,type:["com"],badge:"Commercial",bc:"",name:"Entrepôt 50 kWc",power:"50 000 Wc — 50 Panneaux JA Solar 400W",sub:"Entrepôts, ateliers, PME industrielles",specs:["Production ~60 000 kWh/an","Économie ~9 000 €/an","Monitoring SCADA inclus","TVA récupérable pro"],roi:"ROI estimé : 3–4 ans",p:{b:19000,f:2800,i:12000,s:13200,sv:7900,t:54900}},
+  {id:6,type:["ind"],badge:"Industriel",bc:"ind",name:"Usine 100 kWc",power:"100 000 Wc — 100 Panneaux LONGi Bifacial",sub:"Usines, sites industriels, fermes solaires",specs:["Production ~120 000 kWh/an","Économie ~18 000 €/an","Panneaux bifaciaux +15%","Mise en service complète"],roi:"ROI estimé : 3–4 ans",p:{b:35000,f:5000,i:22000,s:24000,sv:13900,t:99900}},
+  {id:7,type:["ind"],badge:"Industriel",bc:"ind",name:"Ferme Solaire 500 kWc",power:"500 000 Wc — Installation au sol ou grande toiture",sub:"Grands sites industriels & fermes solaires",specs:["Production ~600 000 kWh/an","Économie ~90 000 €/an","Onduleurs centraux Huawei","Étude technique dédiée"],roi:"ROI estimé : 3–4 ans",p:{b:170000,f:22000,i:95000,s:112000,sv:70000,t:469000}},
+  {id:8,type:["ther"],badge:"Thermique",bc:"",name:"Chauffe-eau Solaire",power:"300L — 4 Capteurs thermiques solaires",sub:"Eau chaude sanitaire — réduction 70% facture",specs:["Chauffe 300L par jour","Économie ~400 €/an","Capteurs tube sous vide","Compatible eau douce & calcaire"],roi:"ROI estimé : 6–8 ans",p:{b:900,f:200,i:600,s:1300,sv:900,t:3900}},
+  {id:9,type:["ther"],badge:"Thermique",bc:"",name:"Chauffage Solaire Combiné",power:"Eau + Chauffage — 10 Capteurs + Ballon 500L",sub:"Eau chaude + appoint chauffage maison",specs:["Couvre 50–60% du chauffage","Économie ~1 200 €/an","Compatible plancher chauffant","Subventions MaPrimeRénov éligible"],roi:"ROI estimé : 5–7 ans",p:{b:2400,f:350,i:1800,s:2450,sv:1900,t:8900}},
+];
+
+const SUPPLIERS=[
+  {name:"LONGi Solar",type:"N°1 Mondial Monocristallin",specs:["Rendement jusqu'à 23.6%","Garantie linéaire 30 ans","Certifié IEC/TÜV/MCS/CEC","Panneaux bifaciaux Hi-MO6"],badge:"cert",bl:"N°1 Mondial"},
+  {name:"JA Solar",type:"Top 3 Fabricant Mondial",specs:["5e plus grand fabricant mondial","Rendement 22.5%+","Certifié ISO 9001 & 14001","Garantie produit 15 ans"],badge:"cert",bl:"Top 3 Mondial"},
+  {name:"Trina Solar",type:"Pionnier depuis 1997",specs:["27 ans d'expérience","Vertex S+ 625W bifacial","50 GW installés dans le monde","Garantie 25 ans performance"],badge:"cert",bl:"Certifié"},
+  {name:"Canadian Solar",type:"Leader International",specs:["Présent dans 160 pays","BiHiKu7 bifacial 680W","Garantie linéaire 30 ans","Support technique multilingue"],badge:"cert",bl:"Certifié"},
+  {name:"Huawei FusionSolar",type:"Onduleurs & Monitoring",specs:["N°1 mondial onduleurs string","App monitoring temps réel","IA d'optimisation production","Garantie 10 ans onduleur"],badge:"ver",bl:"Partenaire"},
+  {name:"CATL Energy",type:"Batteries de Stockage",specs:["N°1 mondial batteries EV & solar","LFP ultra-sécurisé","Garantie 10 ans / 6000 cycles","Import direct usine"],badge:"ver",bl:"Partenaire"},
+  {name:"SGS Group",type:"Contrôle Qualité",specs:["Inspection pré-expédition usine","Tests certification IEC","Rapport qualité détaillé","Partenaire 150+ pays"],badge:"ver",bl:"Partenaire"},
+  {name:"Bureau Veritas",type:"Homologation & Certification",specs:["Certification électrique locale","Conformité normes nationales","50+ pays certifiés","Délai express disponible"],badge:"ver",bl:"Partenaire"},
+];
+
+const MARKETS=[
+  {fl:"🇫🇷",cn:"France",fc:"MaPrimeRénov + TVA 10%",d:"Subventions gouvernementales jusqu'à 4 000€. TVA réduite 10%. Réseau installateurs partenaires.",p:"Marché prioritaire"},
+  {fl:"🇲🇦",cn:"Maroc",fc:"Ensoleillement 3 200h/an",d:"Un des meilleurs gisements solaires au monde. Programme NOOR. Forte demande résidentielle et industrielle.",p:"Potentiel exceptionnel"},
+  {fl:"🇸🇳",cn:"Sénégal",fc:"Électrification rurale",d:"Zones sans réseau électrique. Financement BM & BAD disponibles. Projets gouvernementaux actifs.",p:"Croissance rapide"},
+  {fl:"🇦🇪",cn:"Émirats Arabes Unis",fc:"Programme Dubai 75% solaire",d:"Objectif 75% d'énergie solaire d'ici 2050. Subventions industrielles. 0% taxe.",p:"Marché premium"},
+  {fl:"🇪🇸",cn:"Espagne",fc:"3 000h soleil/an",d:"Un des meilleurs pays EU pour le solaire. Marché en forte croissance. Parité réseau atteinte.",p:"Fort potentiel"},
+  {fl:"🇨🇮",cn:"Côte d'Ivoire",fc:"Croissance économique +8%",d:"Boom construction. Projets industriels. Électricité chère. ROI court terme très favorable.",p:"Opportunité unique"},
+  {fl:"🇶🇦",cn:"Qatar",fc:"Projets post-Mondial",d:"Investissements massifs en énergie propre. Projets B2B industriels. Budget gouvernemental important.",p:"B2B prioritaire"},
+  {fl:"🌍",cn:"40+ Autres Pays",fc:"Sur étude",d:"Tunisie, Algérie, Mali, Cameroun, Portugal, Italie... Étude réglementaire et technique incluse.",p:"Étude cas par cas"},
+];
+
+/* Build products */
+const pg=document.getElementById('pGrid');
+PRODS.forEach(p=>{
+  const dep=Math.round(p.p.t*.30),bal=p.p.t-dep;
+  pg.innerHTML+=`<div class="pc rv" data-types="${p.type.join(' ')}" data-id="${p.id}">
+    ${p.bc?`<div class="pc-badge ${p.bc}">${p.badge}</div>`:''}
+    <div class="pc-hdr">
+      <div class="pc-type">Solution Solaire</div>
+      <div class="pc-name">${p.name}</div>
+      <div class="pc-power">${p.power}</div>
+    </div>
+    <div class="pc-body">
+      <div class="pc-specs">${p.specs.map(s=>`<div class="pc-spec">${s}</div>`).join('')}</div>
+      <div class="pc-roi"><span class="pc-roi-icon">📊</span><span class="pc-roi-text">${p.roi}</span></div>
+      <div class="pc-price-box">
+        <div class="pc-price-lbl">Prix clé en main TTC</div>
+        <div class="pc-price">${fmt(p.p.t)}</div>
+        <div class="pc-dep">🔐 Acompte 30% : <span>${fmt(dep)}</span></div>
+        <div class="pc-eco">🌱 ~${(p.p.t/0.18/12).toFixed(0)} mois pour être à 0€ de facture</div>
+      </div>
+      <button class="pc-btn" onclick="openM(${p.id})">Demander un devis →</button>
+    </div>
+  </div>`;
+});
+
+document.getElementById('suppGrid').innerHTML=SUPPLIERS.map(s=>`
+  <div class="sc rv">
+    <div class="scn">${s.name}</div>
+    <div class="sct">${s.type}</div>
+    <ul class="scl">${s.specs.map(i=>`<li>${i}</li>`).join('')}</ul>
+    <span class="scbdg ${s.badge}">${s.bl}</span>
+  </div>`).join('');
+
+document.getElementById('mGrid').innerHTML=MARKETS.map(m=>`
+  <div class="mkc rv">
+    <div class="mkfl">${m.fl}</div>
+    <div class="mkcn">${m.cn}</div>
+    <div class="mkfc">${m.fc}</div>
+    <div class="mkd">${m.d}</div>
+    <div class="mkp">✦ ${m.p}</div>
+  </div>`).join('');
+
+/* Filter */
+function filtP(t,btn){
+  document.querySelectorAll('.ptab').forEach(b=>b.classList.remove('act'));
+  btn.classList.add('act');
+  document.querySelectorAll('.pc').forEach(c=>c.classList.toggle('hid',t!=='all'&&!c.dataset.types.includes(t)));
+}
+
+/* Modal */
+function openM(id){
+  const p=PRODS.find(x=>x.id===id);if(!p)return;
+  const dep=Math.round(p.p.t*.30),bal=p.p.t-dep;
+  document.getElementById('mType').textContent=p.badge;
+  document.getElementById('mName').textContent=p.name;
+  document.getElementById('mSub').textContent=p.power;
+  document.getElementById('p1').textContent=fmt(p.p.b);
+  document.getElementById('p2').textContent=fmt(p.p.i);
+  document.getElementById('p3').textContent=fmt(p.p.f);
+  document.getElementById('p4').textContent=fmt(p.p.s);
+  document.getElementById('p5').textContent=fmt(p.p.sv);
+  document.getElementById('p6').textContent=fmt(p.p.t);
+  document.getElementById('mDep').textContent=fmt(dep);
+  document.getElementById('mBal').textContent=fmt(bal);
+  document.getElementById('mFeats').innerHTML=p.specs.map(f=>`<div class="m-feat">${f}</div>`).join('');
+  document.getElementById('mProd').value=p.name;
+  document.getElementById('mPH').value=fmt(p.p.t);
+  document.getElementById('mAH').value=fmt(dep);
+  document.getElementById('mSubj').value=`Devis solaire — ${p.name} — ${fmt(p.p.t)}`;
+  const btn=document.getElementById('mBtn');
+  btn.textContent=`Envoyer ma demande — ${p.name} →`;
+  btn.disabled=false;btn.style.background='';
+  document.getElementById('modal').classList.add('op');
+  document.body.style.overflow='hidden';
+}
+function closeM(){document.getElementById('modal').classList.remove('op');document.body.style.overflow='';}
+document.getElementById('modal').addEventListener('click',e=>{if(e.target===document.getElementById('modal'))closeM();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM();});
+
+/* Forms */
+function handleF(e,form){
+  e.preventDefault();
+  const btn=document.getElementById('mBtn');
+  btn.textContent='⏳ Envoi...';btn.disabled=true;
+  fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+    .then(()=>{btn.textContent='✅ Devis envoyé — Réponse sous 24h !';btn.style.background='var(--grn)';})
+    .catch(()=>{btn.textContent='✅ Demande enregistrée — Nous vous contactons !';btn.style.background='var(--grn)';});
+}
+function handleCF(e,form){
+  e.preventDefault();
+  const btn=document.getElementById('cBtn');
+  btn.textContent='⏳ Envoi...';btn.disabled=true;
+  fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+    .then(()=>{btn.textContent='✅ Devis envoyé — Réponse sous 24h';btn.style.background='var(--grn)';})
+    .catch(()=>{btn.textContent='✅ Envoyé !';btn.style.background='var(--grn)';});
+}
+
+/* AI Chatbot */
+let chatOpen=false,chatHistory=[],isTyping=false;
+const msgs=document.getElementById('chatMsgs');
+
+const SYSTEM_PROMPT=`Tu es Soleil, l'assistante commerciale IA de By Solar, spécialisée en panneaux solaires photovoltaïques et thermiques pour le monde entier.
+
+TES OBJECTIFS :
+1. Qualifier le prospect rapidement (type de projet, surface, pays, budget)
+2. Recommander la bonne solution du catalogue
+3. Expliquer le ROI et les économies réelles
+4. Rassurer sur les garanties et le processus 30/70
+5. Pousser vers une demande de devis
+
+CATALOGUE PRODUITS (avec détails) :
+- Starter 3 kWc : 5 900€ (acompte 1 770€) — petite maison, 3 600 kWh/an, ROI 5-6 ans
+- Confort 6 kWc : 9 900€ (acompte 2 970€) — maison standard + batterie CATL, ROI 4-5 ans ⭐ BEST-SELLER
+- Premium 9 kWc : 13 900€ (acompte 4 170€) — grande maison, autosuffisance 80%
+- PME 20 kWc : 24 900€ (acompte 7 470€) — bureaux & commerces, économie 3 600€/an
+- Entrepôt 50 kWc : 54 900€ (acompte 16 470€) — ROI 3-4 ans, TVA récupérable
+- Usine 100 kWc : 99 900€ (acompte 29 970€) — bifacial, 120 000 kWh/an
+- Ferme 500 kWc : 469 000€ — grands sites industriels, sur devis
+- Chauffe-eau solaire : 3 900€ — eau chaude sanitaire, économie 400€/an
+- Chauffage combiné : 8 900€ — eau + chauffage, économie 1 200€/an
+
+FOURNISSEURS : LONGi (N°1 mondial), JA Solar, Trina Solar, Canadian Solar. Onduleurs Huawei FusionSolar. Batteries CATL.
+
+MARCHÉS PRIORITAIRES : France (MaPrimeRénov), Maroc (soleil 3 200h/an), Sénégal (électrification), EAU, Espagne, Côte d'Ivoire.
+
+GARANTIES : 25 ans rendement, 12-15 ans produit, installation certifiée, monitoring app inclus.
+
+PROCESSUS : 30% acompte → livraison & installation 4-8 semaines → 70% à la mise en service.
+
+TON : Enthousiaste, pédagogique, rassurant. Maximum 4 lignes par réponse. Finir par une question. Réponds dans la langue de l'utilisateur.`;
+
+function addMsg(text,role){
+  const d=document.createElement('div');
+  d.className=`msg ${role}`;d.textContent=text;
+  msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;
+}
+function showTyping(){
+  const d=document.createElement('div');
+  d.className='msg typing';d.id='ti';
+  d.innerHTML='<div class="dot"></div><div class="dot"></div><div class="dot"></div>';
+  msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;
+}
+function hideTyping(){const t=document.getElementById('ti');if(t)t.remove();}
+
+async function callClaude(userMsg){
+  chatHistory.push({role:'user',content:userMsg});
+  showTyping();isTyping=true;
+  try{
+    const r=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:SYSTEM_PROMPT,messages:chatHistory})
+    });
+    const data=await r.json();
+    const reply=data.content?.[0]?.text||"Désolé, contactez-nous sur WhatsApp !";
+    chatHistory.push({role:'assistant',content:reply});
+    hideTyping();isTyping=false;
+    addMsg(reply,'bot');
+  }catch(e){
+    hideTyping();isTyping=false;
+    addMsg("Contactez-nous sur WhatsApp pour un devis immédiat !","bot");
+  }
+}
+
+function toggleChat(){
+  chatOpen=!chatOpen;
+  const box=document.getElementById('chat-box');
+  box.classList.toggle('op',chatOpen);
+  document.querySelector('.cbdg').style.display=chatOpen?'none':'flex';
+  if(chatOpen&&msgs.children.length===0){
+    addMsg("Bonjour ! Je suis Soleil ☀️, votre assistante By Solar.\n\nQuel type de projet solaire vous intéresse ? Résidentiel, commercial ou industriel ? Et dans quel pays ?","bot");
+  }
+}
+function sendMsg(){
+  const inp=document.getElementById('chat-input');
+  const text=inp.value.trim();
+  if(!text||isTyping)return;
+  inp.value='';
+  addMsg(text,'user');
+  document.getElementById('quickBtns').style.display='none';
+  callClaude(text);
+}
+function sendQ(q){
+  addMsg(q,'user');
+  document.getElementById('quickBtns').style.display='none';
+  callClaude(q);
+}
+
+/* Nav scroll */
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('sc',window.scrollY>80));
+
+/* Scroll reveal */
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.tar
