@@ -5,6 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>By Solar — Panneaux Solaires Photovoltaïques & Thermiques | Mondial</title>
 <meta name="description" content="Solutions solaires résidentielles, commerciales et industrielles. LONGi, JA Solar, Trina Solar. Installation mondiale. ROI garanti 4-6 ans. 30% acompte.">
+<meta name="keywords" content="panneaux solaires, photovoltaïque, thermique, installation solaire, ROI solaire, énergie renouvelable">
+<meta name="author" content="By Solar">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://by-solar.fr/">
+<meta property="og:title" content="By Solar — Panneaux Solaires & Installation Mondiale">
+<meta property="og:description" content="Investissez dans l'énergie solaire. ROI 4-6 ans, 30% acompte. Installation mondiale. Devis gratuit sous 24h.">
+<meta property="og:image" content="https://by-solar.fr/og-image.png">
+<meta property="og:url" content="https://by-solar.fr/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="By Solar — Panneaux Solaires Mondiaux">
+<meta name="twitter:description" content="Investissez dans l'énergie solaire. ROI garanti 4-6 ans.">
+<meta name="twitter:image" content="https://by-solar.fr/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -301,6 +315,21 @@ footer{background:var(--navy-d);padding:2.5rem 4rem;}
   #chat-box{width:calc(100vw - 2rem);left:1rem;}
 }
 </style>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX', {'page_path': window.location.pathname});
+</script>
+<!-- Facebook Pixel -->
+<script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', 'XXXXXXXXXX');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=XXXXXXXXXX&ev=PageView&noscript=1"/></noscript>
 </head>
 <body>
 
@@ -330,7 +359,7 @@ footer{background:var(--navy-d);padding:2.5rem 4rem;}
       </div>
       <div class="m-feats" id="mFeats"></div>
       <div class="m-section-ttl">📋 Demande de devis gratuit</div>
-      <form class="mform" action="https://formspree.io/f/YOUR_SOLAR_FORM_ID" method="POST" onsubmit="handleF(event,this)">
+      <form class="mform" action="/api/submit-form" method="POST" onsubmit="handleF(event,this)">
         <input type="hidden" name="_subject" id="mSubj">
         <input type="hidden" name="produit" id="mProd">
         <input type="hidden" name="prix_total" id="mPH">
@@ -534,7 +563,7 @@ footer{background:var(--navy-d);padding:2.5rem 4rem;}
     <div class="sl rv" style="border-color:rgba(245,166,35,.3);color:var(--sun-l);background:rgba(245,166,35,.1);margin:0 auto 1.2rem;">☀️ Contact</div>
     <h2 class="rv">Commencez à produire<br>votre propre énergie</h2>
     <p class="rv">Devis gratuit sous 24h. Ou chattez avec Soleil, notre IA solaire 24h/7j ☀️</p>
-    <form class="cform rv" action="https://formspree.io/f/YOUR_SOLAR_FORM_ID" method="POST" onsubmit="handleCF(event,this)">
+    <form class="cform rv" action="/api/contact-form" method="POST" onsubmit="handleCF(event,this)">
       <div class="cr">
         <div class="cf"><label>Prénom & Nom *</label><input type="text" name="nom" placeholder="Jean Dupont" required></div>
         <div class="cf"><label>Société (si applicable)</label><input type="text" name="societe" placeholder="Mon Entreprise"></div>
@@ -707,17 +736,19 @@ function handleF(e,form){
   e.preventDefault();
   const btn=document.getElementById('mBtn');
   btn.textContent='⏳ Envoi...';btn.disabled=true;
-  fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
-    .then(()=>{btn.textContent='✅ Devis envoyé — Réponse sous 24h !';btn.style.background='var(--grn)';})
-    .catch(()=>{btn.textContent='✅ Demande enregistrée — Nous vous contactons !';btn.style.background='var(--grn)';});
+  const formData=new FormData(form);const data=Object.fromEntries(formData);
+  fetch(form.action,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'submit-form',data})})
+    .then(r=>r.json()).then(res=>{btn.textContent='✅ Devis envoyé — Réponse sous 24h !';btn.style.background='var(--grn)';if(typeof gtag!=='undefined')gtag('event','form_submission',{form_type:'quote'});})
+    .catch(e=>{btn.textContent='✅ Demande enregistrée — Nous vous contactons !';btn.style.background='var(--grn)';});
 }
 function handleCF(e,form){
   e.preventDefault();
   const btn=document.getElementById('cBtn');
   btn.textContent='⏳ Envoi...';btn.disabled=true;
-  fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
-    .then(()=>{btn.textContent='✅ Devis envoyé — Réponse sous 24h';btn.style.background='var(--grn)';})
-    .catch(()=>{btn.textContent='✅ Envoyé !';btn.style.background='var(--grn)';});
+  const formData=new FormData(form);const data=Object.fromEntries(formData);
+  fetch(form.action,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'contact-form',data})})
+    .then(r=>r.json()).then(res=>{btn.textContent='✅ Devis envoyé — Réponse sous 24h';btn.style.background='var(--grn)';if(typeof gtag!=='undefined')gtag('event','form_submission',{form_type:'contact'});})
+    .catch(e=>{btn.textContent='✅ Envoyé !';btn.style.background='var(--grn)';});
 }
 
 /* AI Chatbot */
@@ -771,20 +802,11 @@ async function callClaude(userMsg){
   chatHistory.push({role:'user',content:userMsg});
   showTyping();isTyping=true;
   try{
-    const r=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:SYSTEM_PROMPT,messages:chatHistory})
-    });
+    const r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:userMsg,history:chatHistory.slice(0,-1)})});
     const data=await r.json();
-    const reply=data.content?.[0]?.text||"Désolé, contactez-nous sur WhatsApp !";
-    chatHistory.push({role:'assistant',content:reply});
-    hideTyping();isTyping=false;
-    addMsg(reply,'bot');
-  }catch(e){
-    hideTyping();isTyping=false;
-    addMsg("Contactez-nous sur WhatsApp pour un devis immédiat !","bot");
-  }
+    if(data.message){chatHistory.push({role:'assistant',content:data.message});hideTyping();isTyping=false;addMsg(data.message,'bot');if(typeof gtag!=='undefined')gtag('event','chat_message',{type:'assistant'});}
+    else{hideTyping();isTyping=false;addMsg("Contactez-nous sur WhatsApp pour un devis immédiat !","bot");}
+  }catch(e){hideTyping();isTyping=false;addMsg("Contactez-nous sur WhatsApp pour un devis immédiat !","bot");}
 }
 
 function toggleChat(){
@@ -815,4 +837,20 @@ function sendQ(q){
 window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('sc',window.scrollY>80));
 
 /* Scroll reveal */
-const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.tar
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis');}));
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+
+/* Keyboard shortcuts */
+document.addEventListener('keydown',e=>{
+  if(e.ctrlKey||e.metaKey){
+    if(e.key==='k'){e.preventDefault();toggleChat();}
+  }
+});
+
+/* Safe gtag wrapper */
+if(typeof gtag==='undefined'){window.gtag=function(){console.debug('[GA]',arguments);};}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.263.1"></script>
+</body>
+</html>
