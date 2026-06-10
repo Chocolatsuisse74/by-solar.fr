@@ -1,0 +1,51 @@
+# Netlify Configuration for By Solar
+# https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  command = "npm install"
+  functions = "api"
+  publish = "."
+
+[build.environment]
+  NODE_VERSION = "18.18.0"
+
+# Redirects for API calls
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/handler/:splat"
+  status = 200
+
+# Cache settings
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Environment context (use for different branches)
+[context.production]
+  environment = { NODE_ENV = "production" }
+
+[context.deploy-preview]
+  environment = { NODE_ENV = "development" }
+
+[context.branch-deploy]
+  environment = { NODE_ENV = "development" }
